@@ -34,8 +34,15 @@ const generateSquare = () => {
     square.style.borderColor = "red";
     square.style.alignSelf = "start";
 
+    square.addEventListener("mouseover", (e) => changeColor(e.target));
+
     return square;
 
+}
+
+let changeColor = (square) => {
+
+    square.style.backgroundColor = "black";
 }
 
 generateGrid();
