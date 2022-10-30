@@ -22,13 +22,13 @@ const generateGrid = (input) => {
 
 }
 
-const generateSquare = () => {
+const generateSquare = (pixels) => {
 
     let square = document.createElement("div");
 
     square.classList.add("square");
-    square.style.width = "20px";
-    square.style.height = "20px";
+    square.style.width = pixels + "px";
+    square.style.height = pixels + "px";
     square.style.boxSizing = "border-box";
     square.style.borderStyle = "solid";
     square.style.borderColor = "red";
