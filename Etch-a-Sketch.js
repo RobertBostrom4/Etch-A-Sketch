@@ -12,7 +12,7 @@ const generateGrid = (input) => {
         container.appendChild(row);
 
         for (j = 0; j < input; j++) {
-            let square = generateSquare();
+            let square = generateSquare(960 / input);
             row.appendChild(square);
 
         }
@@ -39,8 +39,32 @@ const generateSquare = (pixels) => {
 
 }
 
-let changeColor = (square) => {
+const changeColor = (square) => {
 
     square.style.backgroundColor = "black";
 }
-generateGrid();
+
+const clearContainer = (container) => {
+
+    while (container.hasChildNodes()) {
+        container.removeChild(container.firstChild);
+    }
+
+}
+
+function start() {
+
+    let container = document.querySelector(".container");
+    let button = document.querySelector(".create-grid");
+
+    button.addEventListener("click", () => {
+
+        clearContainer(container);
+        let gridValue = parseInt(prompt("Enter how many squares should be on each side of the grid"));
+        generateGrid(gridValue);
+    });
+
+}
+
+start();
+
