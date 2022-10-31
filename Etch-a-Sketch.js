@@ -60,8 +60,14 @@ function start() {
     button.addEventListener("click", () => {
 
         clearContainer(container);
-        let gridValue = parseInt(prompt("Enter how many squares should be on each side of the grid"));
-        generateGrid(gridValue);
+        let gridValue = parseInt(prompt("Enter how many squares should be on each side of the grid (maximum 100)"));
+
+        if (gridValue < 100) {
+            generateGrid(gridValue);
+        } else {
+            generateGrid(100);
+        }
+
     });
 
 }
