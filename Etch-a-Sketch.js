@@ -52,6 +52,10 @@ const clearContainer = (container) => {
 
 }
 
+const generateRandomNumber = () => {
+    Math.floor(Math.random() * 256);
+}
+
 function start() {
 
     let container = document.querySelector(".container");
