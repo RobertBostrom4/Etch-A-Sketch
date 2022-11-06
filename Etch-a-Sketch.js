@@ -53,7 +53,7 @@ const clearContainer = (container) => {
 }
 
 const generateRandomNumber = () => {
-    Math.floor(Math.random() * 256);
+    return Math.floor(Math.random() * 256);
 }
 
 function start() {
