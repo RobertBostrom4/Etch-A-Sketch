@@ -40,7 +40,6 @@ const generateSquare = (pixels) => {
 }
 
 const changeColor = (square) => {
-
     square.style.backgroundColor = "black";
 }
 
@@ -59,9 +58,9 @@ const generateRandomNumber = () => {
 function start() {
 
     let container = document.querySelector(".container");
-    let button = document.querySelector(".create-grid");
+    let buttons = document.querySelectorAll(".create-grid");
 
-    button.addEventListener("click", () => {
+    buttons.forEach(button => button.addEventListener("click", () => {
 
         clearContainer(container);
         let gridValue = parseInt(prompt("Enter how many squares should be on each side of the grid (maximum 100)"));
@@ -72,8 +71,8 @@ function start() {
             generateGrid(100);
         }
 
-    });
-
+    })
+    );
 }
 
 start();
