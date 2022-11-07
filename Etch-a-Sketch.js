@@ -64,13 +64,13 @@ function start() {
 
         clearContainer(container);
         let gridValue = parseInt(prompt("Enter how many squares should be on each side of the grid (maximum 100)"));
-
+        
         if (gridValue < 100) {
             generateGrid(gridValue);
-        } else {
+        } else if (gridValue >= 100) {
             generateGrid(100);
         }
-
+        
     })
     );
 }
