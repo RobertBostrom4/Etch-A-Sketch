@@ -1,4 +1,4 @@
-const generateGrid = (input) => {
+const generateGrid = (input, buttonOption) => {
 
     let container = document.querySelector(".container");
 
@@ -12,7 +12,7 @@ const generateGrid = (input) => {
         container.appendChild(row);
 
         for (j = 0; j < input; j++) {
-            let square = generateSquare(960 / input);
+            let square = generateSquare(960 / input, buttonOption);
             row.appendChild(square);
 
         }
@@ -22,7 +22,7 @@ const generateGrid = (input) => {
 
 }
 
-const generateSquare = (pixels) => {
+const generateSquare = (pixels, buttonOption) => {
 
     let square = document.createElement("div");
 
@@ -34,13 +34,21 @@ const generateSquare = (pixels) => {
     square.style.borderColor = "red";
     square.style.alignSelf = "start";
 
-    square.addEventListener("mouseover", (e) => changeColor(e.target));
+    square.addEventListener("mouseover", (e) => changeColor(e.target, buttonOption));
     return square;
 
 }
 
-const changeColor = (square) => {
-    square.style.backgroundColor = "black";
+const changeColor = (square, buttonOption) => {
+
+    if (buttonOption.id == "blackAndWhite") {
+        square.style.backgroundColor = "black";
+    }
+
+    if (buttonOption.id == "randomColors") {
+        square.style.backgroundColor = "rgb(" + generateRandomNumber() + "," + generateRandomNumber() + "," + generateRandomNumber() + ")";
+    }
+
 }
 
 const clearContainer = (container) => {
@@ -64,13 +72,13 @@ function start() {
 
         clearContainer(container);
         let gridValue = parseInt(prompt("Enter how many squares should be on each side of the grid (maximum 100)"));
-        
+
         if (gridValue < 100) {
-            generateGrid(gridValue);
+            generateGrid(gridValue, button);
         } else if (gridValue >= 100) {
-            generateGrid(100);
+            generateGrid(100, button);
         }
-        
+
     })
     );
 }
