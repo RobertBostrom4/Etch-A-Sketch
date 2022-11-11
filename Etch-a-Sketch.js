@@ -33,6 +33,7 @@ const generateSquare = (pixels, buttonOption) => {
     square.style.borderStyle = "solid";
     square.style.borderColor = "red";
     square.style.alignSelf = "start";
+    square.style.backgroundColor = "rgb(255,255,255)";
 
     square.addEventListener("mouseover", (e) => changeColor(e.target, buttonOption));
     return square;
