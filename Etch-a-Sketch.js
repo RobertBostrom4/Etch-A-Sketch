@@ -42,12 +42,21 @@ const generateSquare = (pixels, buttonOption) => {
 
 const changeColor = (square, buttonOption) => {
 
+
     if (buttonOption.id == "blackAndWhite") {
         square.style.backgroundColor = "black";
     }
 
     if (buttonOption.id == "randomColors") {
         square.style.backgroundColor = "rgb(" + generateRandomNumber() + "," + generateRandomNumber() + "," + generateRandomNumber() + ")";
+    }
+
+    if (buttonOption.id == "gradualColorChange") {
+        let color = square.style.backgroundColor
+        let rgbValue = parseInt(color.match(/\b[0-9]+\b/));
+        let darkerRgbValue = rgbValue * 0.9;
+
+        square.style.backgroundColor = "rgb(" + darkerRgbValue + "," + darkerRgbValue + "," + darkerRgbValue + ")";
     }
 
 }
